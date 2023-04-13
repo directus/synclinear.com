@@ -30,7 +30,9 @@ export async function linearWebhookHandler(
     originIp: string
 ) {
     if (!LINEAR.IP_ORIGINS.includes(`${originIp || ""}`)) {
-        console.log("Could not verify Linear webhook.");
+        console.log(
+            `Could not verify Linear webhook. IP address ${originIp} isn't a known webhook source`
+        );
         throw new Error("Could not verify Linear webhook.");
     }
 
